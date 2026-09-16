@@ -1,0 +1,41 @@
+# GitHub Actions Workflow - Täglich die Google Reviews aktualisieren
+# Speichern unter: .github/workflows/update-google-reviews.yml
+
+name: Update Google Reviews in Webflow
+
+on:
+  schedule:
+    # Jeden Tag um 08:00 UTC (9:00 CET)
+    - cron: '0 8 * * *'
+  workflow_dispatch:  # Manuell auslösen
+
+jobs:
+  update-reviews:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Run Google Reviews Updater
+        env:
+          WEBFLOW_API_KEY: ${{ secrets.WEBFLOW_API_KEY }}
+          WEBFLOW_SITE_ID: ${{ secrets.WEBFLOW_SITE_ID }}
+          WEBFLOW_PAGE_ID: ${{ secrets.WEBFLOW_PAGE_ID }}
+          WEBFLOW_VAR_COLLECTION_ID: ${{ secrets.WEBFLOW_VAR_COLLECTION_ID }}
+        run: node google-reviews-updater.js
+      
+      - name: Send Notification (optional)
+        if: always()
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "Google Reviews Update: ${{ job.status }}"
+            }
