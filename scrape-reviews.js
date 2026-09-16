@@ -1,14 +1,3 @@
-// scripts/scrape-reviews.js
-//
-// Öffnet die Google "storepages"-Seite headless, akzeptiert ggf. den
-// Cookie-Consent-Dialog (relevant bei c=DE / EU-Traffic) und liest die
-// aktuelle Bewertungsanzahl aus dem DOM aus.
-//
-// Hinweis: Diese Seite ist keine offizielle, dokumentierte Google-API.
-// Google kann die CSS-Klassen (z. B. "TR8uT-NnAfwf") jederzeit ohne
-// Ankündigung ändern. Falls das Script anfängt zu failen, ist das meist
-// die erste Fehlerquelle, die zu prüfen ist (siehe README).
-
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
