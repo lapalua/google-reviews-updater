@@ -1,0 +1,27 @@
+{
+  "name": "google-reviews-updater",
+  "version": "1.0.0",
+  "description": "Automatische Aktualisierung von Google Reviews in Webflow",
+  "main": "google-reviews-updater.js",
+  "scripts": {
+    "start": "node google-reviews-updater.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "echo \"Setup completed. Please set your environment variables.\""
+  },
+  "keywords": [
+    "google-reviews",
+    "webflow",
+    "automation",
+    "scraper"
+  ],
+  "author": "Hopkins Kanzlei",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "optionalDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "jsdom": "^20.0.0",
+    "tunnel": "^0.0.6"
+  }
+}
