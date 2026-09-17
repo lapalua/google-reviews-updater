@@ -3,9 +3,9 @@
   "name": "google-reviews-sync",
   "version": "1.0.0",
   "private": true,
-  "description": "Holt die aktuelle Google-Bewertungsanzahl und schreibt sie in reviews.json",
+  "description": "Checks Google reviews and saves in reviews.json",
   "scripts": {
-    "scrape": "node scripts/scrape-reviews.js"
+    "scrape": "node scrape-reviews.js"
   },
   "dependencies": {
     "puppeteer": "^22.0.0"
