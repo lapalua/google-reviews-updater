@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const URL = 'https://www.google.com/storepages?q=hopkins.law&c=DE';
-const OUTPUT_PATH = path.join(__dirname, '..', 'reviews.json');
+const OUTPUT_PATH = path.join(__dirname,'reviews.json');
 
 async function acceptCookiesIfPresent(page) {
   const selectors = [
